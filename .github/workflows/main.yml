@@ -60,4 +60,4 @@ jobs:
           docker rm kehome
           docker rmi kehome
           docker build -t kehome .
-          docker run -d --restart unless-stopped -p 8080:8082 --name=kehome kehome ./home
+          docker run -d --restart unless-stopped -p 8082:8080 --name=kehome kehome ./home
