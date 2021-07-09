@@ -54,7 +54,7 @@ jobs:
           cd /home/go/home
           rm -rf home
           rm -rf Dockfile
-          mv /root/auth ./
+          mv /root/home ./
           mv /root/Dockerfile ./
           docker stop kehome
           docker rm kehome
