@@ -1,0 +1,63 @@
+name: Go
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.16
+
+    - name: Build
+      run: go build
+      env:
+        CGO_ENABLED: 0
+      
+    - name: copy file via ssh password
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{secrets.HOST}}
+        username: root
+        password: ${{ secrets.SSH_PWD }}
+        port: 22
+        source: "home"
+        target: "/root"
+      
+    - name: copy file via ssh password
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{secrets.HOST}}
+        username: root
+        password: ${{ secrets.SSH_PWD }}
+        port: 22
+        source: "Dockerfile"
+        target: "/root"
+        
+    - name: multiple command
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{secrets.HOST}}
+        username: root
+        password: ${{ secrets.SSH_PWD }}
+        port: 22
+        script: |
+          cd /home/go/home
+          rm -rf home
+          rm -rf Dockfile
+          mv /root/auth ./
+          mv /root/Dockerfile ./
+          docker stop kehome
+          docker rm kehome
+          docker rmi kehome
+          docker build -t kehome .
+          docker run -d --restart unless-stopped -p 8080:8082 --name=kehome kehome ./home
