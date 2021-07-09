@@ -1,0 +1,112 @@
+<html>
+    <head>
+        <title>Kisia</title>
+        <link rel="icon" href="./static/static/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="/static/static/main.css">
+    </head>
+    <body>
+        <div id="bgImg"></div>
+        <diV id="gradient"></diV>
+        <div id="content">
+            <!-- header -->
+            <div id="header">
+                <div></div>
+                <div style="display: inline; padding-right: 30px; height: 48px;">
+                    <a class="icon-mini" onclick="swap()">
+                        <svg class="gb_Ve" focusable="false" viewBox="0 0 24 24"><path d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z"></path></svg>
+                    </a>
+                </div>
+                <div id="star" style="overflow: hidden; position: absolute; top: 0px; width: 328px; z-index: 991; height: 0; margin-top: 57px; transition: height 0.3s ease-in-out 0s, opacity 0.1s ease 0.02s; right: 0px; margin-right: 4px; opacity: 0; max-height: calc(-65px + 100vh);">
+                    <div class="MCcOAc">
+                        <div class="T4LgNb">
+                            <div class="kFwPee">
+                                <div class="qWuU9c">
+                                    <div class="EHzcec">
+                                        <ul class="LVal7b">
+                                            <li class="j1ei8c">
+                                                <a class="tile" href="https://www.iconfont.cn/" target="_blank">
+                                                    <div class="tile-icon">
+                                                        <img class="icon" src="./static/static/iconfont-al.svg">
+                                                    </div>
+                                                    <div class="tile-title">
+                                                        <span class="Rq5Gcb">阿里矢量图标库</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="j1ei8c">
+                                                <a class="tile" href="https://tool.lu/favicon/" target="_blank">
+                                                    <div class="tile-icon">
+                                                        <img class="icon" src="./static/static/icon-convert.svg">
+                                                    </div>
+                                                    <div class="tile-title">
+                                                        <span class="Rq5Gcb">ico制作</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- header -->
+            <div style="min-height: 200px; display: flex; flex-direction: column; flex-shrink: 0; justify-content: flex-end;">
+                <div id="logo"></div>
+            </div>
+            
+            <div id="container">
+                <a class="tile" href="http://kisia.cn:9999" target="_blank">
+                    <div class="tile-icon bg-grey">
+                        <img class="icon" src="./static/static/thief-cat.ico">
+                    </div>
+                    <div class="tile-title">
+                        <span class="shadow">基金助手</span>
+                    </div>
+                </a>
+                <a class="tile" href="https://kisia.cn/cytoscape-demo/" target="_blank">
+                    <div class="tile-icon bg-grey">
+                        <img class="icon" src="./static/static/cytoscape.svg">
+                    </div>
+                    <div class="tile-title">
+                        <span class="shadow">cytoscape-demo</span>
+                    </div>
+                </a>
+                <a class="tile" href="https://kisia.cn/" target="_blank">
+                    <div class="tile-icon bg-grey">
+                        <img class="icon" src="./static/static/luckystar.svg">
+                    </div>
+                    <div class="tile-title">
+                        <span class="shadow">luckystar</span>
+                    </div>
+                </a>
+                <a class="tile" href="https://oa.kisia.cn/" target="_blank">
+                    <div class="tile-icon bg-grey">
+                        <img class="icon" src="./static/static/oa.svg">
+                    </div>
+                    <div class="tile-title">
+                        <span class="shadow">oa</span>
+                    </div>
+                </a>
+                <a class="tile" href="https://www.yuque.com/kisia/mo9bhd" target="_blank">
+                    <div class="tile-icon bg-grey">
+                        <img class="icon" src="./static/static/yuque.svg">
+                    </div>
+                    <div class="tile-title">
+                        <span class="shadow">语雀</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <script>
+            function swap() {
+                opacity = document.getElementById('star').style.opacity
+                document.getElementById('star').style.opacity= (opacity == "1" ? "0" : "1")
+                document.getElementById('star').style.height = (opacity == "1" ? "0" : "448px")
+            }
+        </script>
+        
+    </body>
+</html>
