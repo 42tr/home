@@ -1,5 +1,7 @@
 body {
     margin: 0;
+    font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;
+    font-size: 81.25%;
 }
 #gradient {
     background: radial-gradient(transparent 50%, black), linear-gradient(transparent, black);
@@ -30,8 +32,8 @@ body {
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-size: 100%;
     background-color: rgba(238, 238, 238, 1);
-    height: 92px;
-    width: 272px;
+    height: 151px;
+    width: 343px;
     margin-bottom: 38px;
     z-index: 10;
 }
@@ -79,10 +81,11 @@ body {
     --column-count: 4;
     --row-count: 2;
     --content-width: calc(var(--column-count) * 112px + 1px);
-    width: calc(var(--content-width) + 12px);
+    width: 600px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    height: calc(var(--row-count) * var(--tile-size));
+    height: 232px;
 }
 .icon {
     width: 32px;

@@ -1,15 +1,14 @@
-<svg width="1618" height="619" xmlns="http://www.w3.org/2000/svg">
+<svg width="683" height="300" xmlns="http://www.w3.org/2000/svg">
  <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
  <g>
   <title>background</title>
-  <rect fill="none" id="canvas_background" height="621" width="1620" y="-1" x="-1"/>
+  <rect fill="none" id="canvas_background" height="302" width="685" y="-1" x="-1"/>
   <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
    <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
   </g>
  </g>
  <g>
   <title>Layer 1</title>
-  <text font-weight="bold" stroke="#000" transform="matrix(30.32954021509868,0,0,23.293397719793564,-22333.914261358783,-7525.587125870175) " xml:space="preserve" text-anchor="start" font-family="'Times New Roman', Times, serif" font-size="24" id="svg_1" y="344.464236" x="736.390321" stroke-width="0" fill="#000000">Kisia</text>
-  <path stroke="#000" id="svg_2" d="m575.430185,130.213807l73.719908,0l22.780019,-69.517989l22.780032,69.517989l73.719895,0l-59.640549,42.963988l22.781197,69.517989l-59.640575,-42.965158l-59.640562,42.965158l22.781204,-69.517989l-59.640568,-42.963988z" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#000000"/>
+  <text font-style="normal" font-weight="bold" stroke="#000" transform="matrix(12.809413909912108,0,0,11.296296119689941,-7888.106880187988,-3204.400407999754) " xml:space="preserve" text-anchor="start" font-family="'Shadows Into Light', serif" font-size="24" id="svg_1" y="305.044411" x="615.805453" stroke-width="0" fill="#000000">Kisia</text>
  </g>
 </svg>
