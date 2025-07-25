@@ -1,0 +1,5 @@
+{
+  "query": "\n    query userProfileCalendar($userSlug: String!, $year: Int) {\n  userCalendar(userSlug: $userSlug, year: $year) {\n    streak\n    totalActiveDays\n    submissionCalendar\n    activeYears\n    monthlyMedals {\n      name\n      obtainDate\n      category\n      config {\n        icon\n        iconGif\n        iconGifBackground\n      }\n      progress\n      id\n      year\n      month\n    }\n    recentStreak\n  }\n}\n    ",
+  "variables": { "userSlug": "U72xhfFR3l" },
+  "operationName": "userProfileCalendar"
+}
