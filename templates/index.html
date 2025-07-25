@@ -69,8 +69,34 @@
             <!-- header -->
 
             <!-- body -->
-            <div class="box" style="height: calc(100vh - 64px); width: 100vw; padding: 30px;">
+            <div class="box" style="height: calc(100vh - 64px); width: 100vw; padding: 30px; display: flex;">
                 <!-- self info -->
+
+                <!-- leetcode info -->
+                <div id="card" class="item" style="font-size: 35px; color: aliceblue; width: 280px; height: 380px; box-shadow: 0 8px 16px -4px rgba(0,0,0,0.314); background: #1b1c20; border: 1px solid #3d3d3f; border-radius: 12px; overflow: hidden; opacity: 1; margin-left: 30px;">
+                    <div style="min-height: 140px; background: linear-gradient(-25deg, #9096ee, rgba(144,150,238,0.867), #9096ee, rgba(144,150,238,0.867)); background-size: 400%; display: block; unicode-bidi: isolate;">
+                        <div style="text-align: center; display: flex; flex-wrap: wrap; justify-content: center; flex-direction: row; align-items: center;">
+                            <div style="margin-top: 20px; display: flex; height: 28px; width: 100%;">
+                                <div style="text-align: center; width: fit-content; font-size: 14px; padding: 2px 8px; border-radius: 12px; cursor: pointer; user-select: none; margin: auto; min-width: 100px;">
+                                Leetcode</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width: 114px; height: 114px; right: calc(50% - 57px); top: 75px; border-radius: 500px; position: absolute; transition: cubic-bezier(.69,.39,0,1.21) .3s; transform-origin: bottom; border: 7px solid #1b1c20;">
+                        <div style="overflow: hidden; border-radius: 500px; width: 100px; height: 100px; background: #1b1c20;">
+                            <img id="cardAvatar" src="static/img/leetcode.svg" style="object-fit: cover; width: 100%; height: 100%; cursor: pointer;">
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; flex-direction: column;">
+                        <div style="margin-top: 60px; text-align: center; font-weight: 700; color: aliceblue; font-size: 20px; line-height: 1; margin-bottom: 5px;">42tr</div>
+                        <div style="font-size: 14px; color: #f7f7fa; text-align: center;">
+                            <p>全站排名: {{.Leetcode.Rating}}</p>
+                            <p>竞赛分数: {{.Leetcode.SiteRanking}}</p>
+                            <p>全球排名: {{.Leetcode.GlobalRanking}}/{{.Leetcode.GlobalTotalParticipants}}</p>
+                            <p>全国排名: {{.Leetcode.LocalRanking}}/{{.Leetcode.LocalTotalParticipants}}</p>
+                        </div>
+                    </div>
+                </div>
                 <div id="card" class="item" style="font-size: 35px; color: aliceblue; width: 280px; height: 380px; box-shadow: 0 8px 16px -4px rgba(0,0,0,0.314); background: #1b1c20; border: 1px solid #3d3d3f; border-radius: 12px; overflow: hidden; opacity: 1;">
                     <div style="min-height: 140px; background: linear-gradient(-25deg, #9096ee, rgba(144,150,238,0.867), #9096ee, rgba(144,150,238,0.867)); background-size: 400%; display: block; unicode-bidi: isolate;">
                         <div style="text-align: center; display: flex; flex-wrap: wrap; justify-content: center; flex-direction: row; align-items: center;">
@@ -130,19 +156,6 @@
             var star = document.getElementById('star')
             star.onmouseover = open
             star.onmouseout = close
-
-            const card = document.getElementById('card')
-            const info = document.getElementById('selfInfo')
-            const avatar = document.getElementById('avatar')
-            const cardAvatar = document.getElementById('cardAvatar')
-            avatar.onclick = () => {
-                card.style.opacity = 1
-                info.style.opacity = 0
-            }
-            cardAvatar.onclick = () => {
-                card.style.opacity = 0
-                info.style.opacity = 1
-            }
         </script>
     </body>
 </html>

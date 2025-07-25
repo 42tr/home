@@ -19,12 +19,12 @@ var userinfo string
 var contestinfo string
 
 type LeetCodeInfo struct {
-	SiteRanking             int     `json:"siteRanking"`
-	Rating                  float32 `json:"rating"`
-	GlobalRanking           int     `json:"globalRanking"`
-	GlobalTotalParticipants int     `json:"globalTotalParticipants"`
-	LocalRanking            int     `json:"localRanking"`
-	LocalTotalParticipants  int     `json:"localTotalParticipants"`
+	SiteRanking             int `json:"siteRanking"`
+	Rating                  int `json:"rating"`
+	GlobalRanking           int `json:"globalRanking"`
+	GlobalTotalParticipants int `json:"globalTotalParticipants"`
+	LocalRanking            int `json:"localRanking"`
+	LocalTotalParticipants  int `json:"localTotalParticipants"`
 }
 
 var LeetcodeInfo LeetCodeInfo
@@ -56,7 +56,7 @@ func getInfo() (LeetCodeInfo, error) {
 	contestInfo := getContestInfo()
 	return LeetCodeInfo{
 		SiteRanking:             userInfo.Data.UserProfilePublicProfile.SiteRanking,
-		Rating:                  contestInfo.Data.UserContestRanking.Rating,
+		Rating:                  int(contestInfo.Data.UserContestRanking.Rating),
 		GlobalRanking:           contestInfo.Data.UserContestRanking.GlobalRanking,
 		GlobalTotalParticipants: contestInfo.Data.UserContestRanking.GlobalTotalParticipants,
 		LocalRanking:            contestInfo.Data.UserContestRanking.LocalRanking,
