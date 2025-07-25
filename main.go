@@ -2,6 +2,7 @@ package main
 
 import (
 	"embed"
+	"home/leetcode"
 	"html/template"
 	"net/http"
 
@@ -22,9 +23,10 @@ func main() {
 		staticServer := http.FileServer(http.FS(static))
 		staticServer.ServeHTTP(c.Writer, c.Request)
 	})
-
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", nil)
 	})
+	api := r.Group("/api")
+	api.GET("/leetcode", leetcode.GetInfo)
 	r.Run()
 }
