@@ -18,8 +18,10 @@ func main() {
 	r := gin.Default()
 	t, _ := template.ParseFS(tmpl, "templates/*.html")
 	r.SetHTMLTemplate(t)
-	// r.Static("/static", "./static")
-	r.StaticFS("/static", http.FS(static))
+	r.GET("/static/*filepath", func(c *gin.Context) {
+		staticServer := http.FileServer(http.FS(static))
+		staticServer.ServeHTTP(c.Writer, c.Request)
+	})
 
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", nil)
