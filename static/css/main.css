@@ -1,6 +1,6 @@
 * {
     margin: 0;
-    box-sizing:border-box;
+    box-sizing: border-box;
     transition: all 1.5s ease;
 }
 @keyframes enlarge {
@@ -45,8 +45,10 @@
     z-index: 1;
 }
 #gradient {
-    background: radial-gradient(transparent 50%, black), linear-gradient(transparent, black);
-    opacity: .2;
+    background:
+        radial-gradient(transparent 50%, black),
+        linear-gradient(transparent, black);
+    opacity: 0.2;
     position: fixed;
     top: 0;
     height: 100%;
@@ -125,7 +127,7 @@
     -webkit-border-radius: 50%;
 }
 a:hover {
-    background-color: rgba(255,255,255,0.12);
+    background-color: rgba(255, 255, 255, 0.12);
 }
 .qWuU9c {
     top: 0;
@@ -140,9 +142,11 @@ a:hover {
     height: 100%;
     width: 100%;
 
-    border: 1px solid rgba(0,0,0,0.2);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 8px;
-    box-shadow: 0px 1px 2px 0px rgb(60 64 67 / 30%), 0px 2px 6px 2px rgb(60 64 67 / 15%);
+    box-shadow:
+        0px 1px 2px 0px rgb(60 64 67 / 30%),
+        0px 2px 6px 2px rgb(60 64 67 / 15%);
 
     background: #fff;
     overflow-x: hidden;
@@ -153,7 +157,7 @@ a:hover {
     list-style-type: none;
     padding: 6px;
     position: relative;
-    transition: transform .2s cubic-bezier(.333,0,0,1);
+    transition: transform 0.2s cubic-bezier(0.333, 0, 0, 1);
     vertical-align: top;
     width: 84px;
 }
@@ -169,7 +173,7 @@ a:hover {
     width: 76px;
 }
 .gb_Ve {
-    color: rgba(255,255,255, 0.87 );
+    color: rgba(255, 255, 255, 0.87);
     fill: currentColor;
 }
 ul {
@@ -204,4 +208,15 @@ ul {
     to {
         transform: rotate(360deg);
     }
+}
+
+.box {
+    column-count: 5;
+    column-gap: 0;
+}
+
+.item {
+    margin: 2px;
+    position: relative;
+    counter-increment: bianhao;
 }
