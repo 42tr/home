@@ -2,7 +2,7 @@
     <head>
         <title>42tr</title>
         <link rel="icon" href="static/img/star.png" type="image/x-icon">
-        <style type="text/css">@font-face { font-family: tea; src: url("static/font/tea.ttf"); } body { font-family: tea; }</style>
+        <style type="text/css">body { font-family: Hannotate SC; }</style>
         <link rel="stylesheet" type="text/css" href="static/css/main.css">
     </head>
     <body>
@@ -11,51 +11,12 @@
         <div id="content">
             <!-- header -->
             <div id="header" style="height: 64px; align-items: center;">
-                <div id="selfInfo" style="font-size: 35px; color: aliceblue; display: flex; align-items: center; z-index: 1">
-                    <img id="avatar" class="spin-animation" src="static/img/42tr.jpg">
-                    &nbsp;&nbsp;<p id="infoName" style="opacity: 1;"><b>42tr</b></p>
+                <div>
+                    <p style="font-size: 24px; color: white; margin-left: 30px;">42tr</p>
                 </div>
-                <!-- self info -->
-                <div id="card" style="font-size: 35px; color: aliceblue; width: 280px; height: 380px; margin-top: 380px; box-shadow: 0 8px 16px -4px rgba(0,0,0,0.314); background: #1b1c20; border: 1px solid #3d3d3f; border-radius: 12px; position: absolute; overflow: hidden; opacity: 0;">
-                    <div style="min-height: 140px; background: linear-gradient(-25deg, #9096ee, rgba(144,150,238,0.867), #9096ee, rgba(144,150,238,0.867)); background-size: 400%; display: block; unicode-bidi: isolate;">
-                        <div style="text-align: center; display: flex; flex-wrap: wrap; justify-content: center; flex-direction: row; align-items: center;">
-                            <div style="margin-top: 20px; display: flex; height: 28px; width: 100%;">
-                                <div style="text-align: center; width: fit-content; font-size: 14px; padding: 2px 8px; border-radius: 12px; cursor: pointer; user-select: none; margin: auto; min-width: 100px;">
-                                设计开发一条龙</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="width: 114px; height: 114px; right: calc(50% - 57px); top: 75px; border-radius: 500px; position: absolute; transition: cubic-bezier(.69,.39,0,1.21) .3s; transform-origin: bottom; border: 7px solid /*#1b1c20*/#1b1c20;">
-                        <div style="overflow: hidden; border-radius: 500px; width: 100px; height: 100px; background: #1b1c20;">
-                            <img id="cardAvatar" src="static/img/42tr.jpg" style="object-fit: cover; width: 100%; height: 100%; cursor: pointer;">
-                        </div>
-                    </div>
-                    <div style="display: flex; align-items: center; flex-direction: column;">
-                        <div style="margin-top: 60px; text-align: center; font-weight: 700; color: aliceblue; font-size: 20px; line-height: 1; margin-bottom: 5px;">42tr</div>
-                        <div style="width: 100%; padding: 10px 20px; margin: 0; display: flex; flex-direction: row; flex-wrap: nowrap; cursor: pointer; text-align: center; align-items: center; justify-content: center;">
-                            <a style="margin: 0; margin-left: 8px; color: #f7f7fa; background-color: transparent; font-size: 1.4em; cursor: pointer; display: flex;">
-                                <i style="background: 0 0; color: #f7f7fa; transition: all .3s ease 0s; padding: 8px; border-radius: 32px; cursor: pointer; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;font-size: 22px; line-height: 1; font-style: normal; -webkit-font-smoothing: antialiased;">
-                                    <img src="static/img/github.svg" style="width: 100%; height: 100%;">
-                                </i>
-                            </a>
-                            <a style="margin: 0; margin-left: 8px; color: #f7f7fa; background-color: transparent; font-size: 1.4em; cursor: pointer; display: flex;">
-                                <i style="background: 0 0; color: #f7f7fa; transition: all .3s ease 0s; padding: 8px; border-radius: 32px; cursor: pointer; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;font-size: 22px; line-height: 1; font-style: normal; -webkit-font-smoothing: antialiased;">
-                                    <img src="static/img/yuque.svg" style="width: 100%; height: 100%;">
-                                </i>
-                            </a>
-                        </div>
-                        <!-- personality -->
-                        <div style="position: absolute; bottom: 0; left: 0; height: 140px; width: 100%;">
-                            <img src="static/img/intj-a.png" style="width: 140px; height: 140px;">
-                            <div style="font-size: 20px; position: absolute; bottom: 0; right: 0; width: 140px; text-align: center; color: #9096ee;">建筑师 INTJ-A</div>
-                        </div>
-                    </div>
-                </div>
-                <!-- self info -->
-
-                <div id="mini" style="display: flex; padding-right: 30px; height: 48px; align-items: center;">
+                <div id="mini" style="margin-left: auto">
                     <a class="icon-mini" style="box-sizing: content-box;">
-                        <svg class="gb_Ve" focusable="false" viewBox="0 0 24 24"><path d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z"></path></svg>
+                        <img src="static/img/minibox.svg">
                     </a>
                 </div>
                 <div id="star" style="overflow: hidden; position: absolute; top: 0px; width: 328px; z-index: 991; height: 0; margin-top: 57px; transition: height 0.3s ease-in-out 0s, opacity 0.1s ease 0.02s; right: 0px; margin-right: 4px; opacity: 0; max-height: calc(-65px + 100vh);">
@@ -107,21 +68,66 @@
             </div>
             <!-- header -->
 
+            <!-- self info -->
+            <div id="card" style="font-size: 35px; color: aliceblue; width: 280px; height: 380px; margin-top: 380px; box-shadow: 0 8px 16px -4px rgba(0,0,0,0.314); background: #1b1c20; border: 1px solid #3d3d3f; border-radius: 12px; position: absolute; overflow: hidden; opacity: 1;">
+                <div style="min-height: 140px; background: linear-gradient(-25deg, #9096ee, rgba(144,150,238,0.867), #9096ee, rgba(144,150,238,0.867)); background-size: 400%; display: block; unicode-bidi: isolate;">
+                    <div style="text-align: center; display: flex; flex-wrap: wrap; justify-content: center; flex-direction: row; align-items: center;">
+                        <div style="margin-top: 20px; display: flex; height: 28px; width: 100%;">
+                            <div style="text-align: center; width: fit-content; font-size: 14px; padding: 2px 8px; border-radius: 12px; cursor: pointer; user-select: none; margin: auto; min-width: 100px;">
+                            设计开发一条龙</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="width: 114px; height: 114px; right: calc(50% - 57px); top: 75px; border-radius: 500px; position: absolute; transition: cubic-bezier(.69,.39,0,1.21) .3s; transform-origin: bottom; border: 7px solid /*#1b1c20*/#1b1c20;">
+                    <div style="overflow: hidden; border-radius: 500px; width: 100px; height: 100px; background: #1b1c20;">
+                        <img id="cardAvatar" src="static/img/42tr.jpg" style="object-fit: cover; width: 100%; height: 100%; cursor: pointer;">
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; flex-direction: column;">
+                    <div style="margin-top: 60px; text-align: center; font-weight: 700; color: aliceblue; font-size: 20px; line-height: 1; margin-bottom: 5px;">42tr</div>
+                    <div style="width: 100%; padding: 10px 20px; margin: 0; display: flex; flex-direction: row; flex-wrap: nowrap; cursor: pointer; text-align: center; align-items: center; justify-content: center;">
+                        <a style="margin: 0; margin-left: 8px; color: #f7f7fa; background-color: transparent; font-size: 1.4em; cursor: pointer; display: flex;">
+                            <i style="background: 0 0; color: #f7f7fa; transition: all .3s ease 0s; padding: 8px; border-radius: 32px; cursor: pointer; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;font-size: 22px; line-height: 1; font-style: normal; -webkit-font-smoothing: antialiased;">
+                                <img src="static/img/github.svg" style="width: 100%; height: 100%;">
+                            </i>
+                        </a>
+                        <a style="margin: 0; margin-left: 8px; color: #f7f7fa; background-color: transparent; font-size: 1.4em; cursor: pointer; display: flex;">
+                            <i style="background: 0 0; color: #f7f7fa; transition: all .3s ease 0s; padding: 8px; border-radius: 32px; cursor: pointer; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;font-size: 22px; line-height: 1; font-style: normal; -webkit-font-smoothing: antialiased;">
+                                <img src="static/img/yuque.svg" style="width: 100%; height: 100%;">
+                            </i>
+                        </a>
+                    </div>
+                    <!-- <div style="font-size: 14px; color: #f7f7fa; text-align: center;">
+                        <p>Ranking: {{.SiteRanking}}</p>
+                        <p>Rating: {{.Rating}}</p>
+                        <p>GlobalRanking: {{.GlobalRanking}}/{{.GlobalTotalParticipants}}</p>
+                        <p>LocalRanking: {{.LocalRanking}}/{{.LocalTotalParticipants}}</p>
+                    </div> -->
+                    <!-- personality -->
+                    <div style="position: absolute; bottom: 0; left: 0; height: 140px; width: 100%;">
+                        <img src="static/img/intj-a.png" style="width: 140px; height: 140px;">
+                        <div style="font-size: 20px; position: absolute; bottom: 0; right: 0; width: 140px; text-align: center; color: #9096ee;">建筑师 INTJ-A</div>
+                    </div>
+                </div>
+            </div>
+            <!-- self info -->
+
             <div style="min-height: 200px; display: flex; flex-direction: column; flex-shrink: 0; justify-content: flex-end;">
                 <div style="-webkit-mask-image: url('static/img/logo.svg'); -webkit-mask-repeat: no-repeat; -webkit-mask-size: 100%; background-color: rgba(238, 238, 238, 1); height: 151px; width: 343px; margin-bottom: 38px; z-index: 10;"></div>
             </div>
-            
+
             <div id="container">
             </div>
         </div>
 
         <canvas id="universe"></canvas>
         <script src="static/js/universe.min.js"></script>
-        
+
         <script>
             let tileItems = [
                 { title: '语雀', src: 'static/img/yuque.svg', href: 'https://www.yuque.com/kisia/mo9bhd' },
-                { title: 'Github', src: 'static/img/github.svg', href: 'https://github.com/42tr' }
+                { title: 'Github', src: 'static/img/github.svg', href: 'https://github.com/42tr' },
+                { title: 'LeetCode', src: 'static/img/leetcode.svg', href: 'https://leetcode.cn/u/42tr/' }
             ]
             tileItems.forEach(item => document.getElementById('container').innerHTML += `<a class="tile" href="${item.href}" target="_blank"><div class="tile-icon bg-grey"><img class="icon" src="${item.src}"></div><div class="tile-title"><span class="shadow">${item.title}</span></div></a>`)
 

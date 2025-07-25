@@ -24,7 +24,7 @@ func main() {
 		staticServer.ServeHTTP(c.Writer, c.Request)
 	})
 	r.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.html", nil)
+		c.HTML(http.StatusOK, "index.html", leetcode.LeetcodeInfo)
 	})
 	api := r.Group("/api")
 	api.GET("/leetcode", leetcode.GetInfo)

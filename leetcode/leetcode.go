@@ -27,7 +27,7 @@ type LeetCodeInfo struct {
 	LocalTotalParticipants  int     `json:"localTotalParticipants"`
 }
 
-var leetcodeInfo LeetCodeInfo
+var LeetcodeInfo LeetCodeInfo
 
 func setLeetCodeInfo() {
 	info, err := getInfo()
@@ -35,7 +35,7 @@ func setLeetCodeInfo() {
 		fmt.Println("Error fetching LeetCode info:", err)
 		return
 	}
-	leetcodeInfo = info
+	LeetcodeInfo = info
 }
 
 func init() {
@@ -48,7 +48,7 @@ func init() {
 }
 
 func GetInfo(c *gin.Context) {
-	c.JSON(http.StatusOK, leetcodeInfo)
+	c.JSON(http.StatusOK, LeetcodeInfo)
 }
 
 func getInfo() (LeetCodeInfo, error) {
