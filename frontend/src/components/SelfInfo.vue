@@ -5,15 +5,15 @@
     </div>
     <div class="middle">
         <div class="avatar-bg">
-            <img class="avatar" src="/42tr.jpg">
+            <a href="/resume" target="_blank">
+                <img class="avatar" src="/42tr.jpg">
+            </a>
         </div>
     </div>
-    <div style="display: flex; align-items: center; flex-direction: column;">
-        <div style="margin-top: 60px; text-align: center; font-weight: 700; color: aliceblue; font-size: 20px; line-height: 1; margin-bottom: 5px;">42tr</div>
-        <div style="position: absolute; bottom: 0; left: 0; height: 140px; width: 100%;">
-            <img src="/intj-a.png" style="width: 140px; height: 140px;">
-            <div style="font-size: 20px; position: absolute; bottom: 0; right: 0; width: 140px; text-align: center; color: #9096ee;">建筑师 INTJ-A</div>
-        </div>
+    <div class="middle-text">42tr</div>
+    <div class="bottom">
+        <img src="/intj-a.png" style="width: 140px; height: 140px;">
+        <div style="font-size: 20px; position: absolute; bottom: 0; right: 0; width: 140px; text-align: center; color: #9096ee;">建筑师 INTJ-A</div>
     </div>
 </div>
 </template>
@@ -63,9 +63,29 @@
     height: 114px;
     background: #1b1c20;
 }
+.avatar-bg:hover {
+    transform: scale(1.1);
+}
+.middle-text {
+    margin-top: 60px;
+    text-align: center;
+    font-weight: 700;
+    color: aliceblue;
+    font-size: 20px;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+.bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 140px;
+    width: 100%;
+}
 .avatar {
     object-fit: cover;
     width: 100%;
     height: 100%;
+    cursor: pointer;
 }
 </style>
