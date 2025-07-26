@@ -1,3 +1,7 @@
 body {
     font-family: Hannotate SC;
 }
+
+.card {
+    width: 280px;
+}

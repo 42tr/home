@@ -22,6 +22,9 @@ var contestinfo string
 //go:embed profile_calendar.json
 var profilecalendar string
 
+//go:embed question_progress.json
+var questionProgress string
+
 type LeetCodeInfo struct {
 	SiteRanking             int    `json:"siteRanking"`
 	Rating                  int    `json:"rating"`
@@ -30,6 +33,8 @@ type LeetCodeInfo struct {
 	LocalRanking            int    `json:"localRanking"`
 	LocalTotalParticipants  int    `json:"localTotalParticipants"`
 	SubmissionCalendar      string `json:"submissionCalendar"`
+	QuestionSolved          int    `json:"questionSolved"`
+	QuestionTotal           int    `json:"questionTotal"`
 }
 
 var LeetcodeInfo LeetCodeInfo
@@ -60,6 +65,18 @@ func getInfo() (LeetCodeInfo, error) {
 	userInfo := getUserInfo()
 	contestInfo := getContestInfo()
 	profilecalendar := getProfileCalendar()
+	questionProgress := getQuestionProgress()
+	questionTotal, questionSolved := 0, 0
+	for _, progress := range questionProgress.Data.UserProfileUserQuestionProgressV2.NumAcceptedQuestions {
+		questionTotal += progress.Count
+		questionSolved += progress.Count
+	}
+	for _, progress := range questionProgress.Data.UserProfileUserQuestionProgressV2.NumFailedQuestions {
+		questionTotal += progress.Count
+	}
+	for _, progress := range questionProgress.Data.UserProfileUserQuestionProgressV2.NumUntouchedQuestions {
+		questionTotal += progress.Count
+	}
 	return LeetCodeInfo{
 		SiteRanking:             userInfo.Data.UserProfilePublicProfile.SiteRanking,
 		Rating:                  int(contestInfo.Data.UserContestRanking.Rating),
@@ -68,6 +85,8 @@ func getInfo() (LeetCodeInfo, error) {
 		LocalRanking:            contestInfo.Data.UserContestRanking.LocalRanking,
 		LocalTotalParticipants:  contestInfo.Data.UserContestRanking.LocalTotalParticipants,
 		SubmissionCalendar:      profilecalendar.Data.UserCalendar.SubmissionCalendar,
+		QuestionTotal:           questionTotal,
+		QuestionSolved:          questionSolved,
 	}, nil
 }
 
@@ -156,4 +175,42 @@ func getProfileCalendar() ProfileCalendarInfo {
 		return ProfileCalendarInfo{}
 	}
 	return profileCalendar
+}
+
+type QuestionProgressInfo struct {
+	Data struct {
+		UserProfileUserQuestionProgressV2 struct {
+			NumAcceptedQuestions []struct {
+				Count int `json:"count"`
+			} `json:"numAcceptedQuestions"`
+			NumFailedQuestions []struct {
+				Count int `json:"count"`
+			} `json:"numFailedQuestions"`
+			NumUntouchedQuestions []struct {
+				Count int `json:"count"`
+			} `json:"numUntouchedQuestions"`
+		} `json:"userProfileUserQuestionProgressV2"`
+	} `json:"data"`
+}
+
+func getQuestionProgress() QuestionProgressInfo {
+	resp, err := http.Post("https://leetcode.cn/graphql/", "application/json", strings.NewReader(questionProgress))
+	if err != nil {
+		log.Fatalln("failed to get question progress:", err)
+		return QuestionProgressInfo{}
+	}
+	defer resp.Body.Close()
+
+	bytes, err := io.ReadAll(resp.Body)
+	if err != nil {
+		log.Fatalln("failed to read response body:", err)
+		return QuestionProgressInfo{}
+	}
+	var questionProgressInfo QuestionProgressInfo
+	err = json.Unmarshal(bytes, &questionProgressInfo)
+	if err != nil {
+		log.Fatalln("failed to unmarshal question progress:", err)
+		return QuestionProgressInfo{}
+	}
+	return questionProgressInfo
 }

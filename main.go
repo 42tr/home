@@ -6,6 +6,7 @@ import (
 	"html/template"
 	"net/http"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -17,6 +18,7 @@ var static embed.FS
 
 func main() {
 	r := gin.Default()
+	r.Use(cors.Default())
 	t, _ := template.ParseFS(tmpl, "templates/*.html")
 	r.SetHTMLTemplate(t)
 	r.GET("/static/*filepath", func(c *gin.Context) {

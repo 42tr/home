@@ -1,5 +1,5 @@
 <template>
-<div class="box">
+<div class="card">
     <div class="top">
         设计开发一条龙
     </div>
@@ -19,12 +19,10 @@
 </template>
 
 <style scoped>
-.box {
-    margin: 10px;
+.card {
     position: relative;
     font-size: 35px;
     color: aliceblue;
-    width: 280px;
     height: 380px;
     box-shadow: 0 8px 16px -4px rgba(0,0,0,0.314);
     background: #1b1c20;
@@ -32,6 +30,7 @@
     border-radius: 12px;
     overflow: hidden;
     opacity: 1;
+    box-sizing: border-box;
 }
 .top {
     min-height: 120px;

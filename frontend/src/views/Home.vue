@@ -1,23 +1,27 @@
 <script setup>
-// import HelloWorld from './components/HelloWorld.vue'
-import { NLayout, NLayoutHeader, NLayoutContent, NSpace } from 'naive-ui'
+import { onMounted, onUnmounted, ref } from 'vue'
+import { NLayout, NLayoutHeader, NLayoutContent, NSpace, NRow, NCol } from 'naive-ui'
 import SelfInfo from '../components/SelfInfo.vue'
+import Leetcode from '../components/Leetcode.vue'
+import http from '../api/http'
 
-import { onMounted, onUnmounted } from 'vue'
+const leetcode = ref({})
 
 onMounted(() => {
-  // 动态创建 script 标签
+  // 加载背景光效
   const script = document.createElement('script')
   script.src = '/universe.min.js'
   script.onload = () => {
-    // 脚本加载完成后的回调
     console.log('universe.js loaded')
   }
   document.head.appendChild(script)
-
-  // 组件卸载时移除脚本（可选）
   onUnmounted(() => {
     document.head.removeChild(script)
+  })
+  // 获取 leetcode 信息
+  http.get('/api/leetcode').then((response) => {
+    console.log(response)
+    leetcode.value = response
   })
 })
 </script>
@@ -33,7 +37,14 @@ onMounted(() => {
                 </div>
             </n-layout-header>
             <n-layout-content>
-                <SelfInfo />
+                <n-row :gutter="[12, 8]">
+                  <n-col :span="6">
+                    <SelfInfo />
+                  </n-col>
+                  <n-col :span="6">
+                    <Leetcode :data="leetcode" />
+                  </n-col>
+                </n-row>
             </n-layout-content>
         </n-layout>
     </n-space>
@@ -54,21 +65,25 @@ onMounted(() => {
     background-color: transparent !important;
     color: white;
     height: 64px;
+    width: 100vw;
 }
 .n-layout-content {
     background-color: transparent !important;
     height: calc(100vh - 64px);
+    width: 100vw;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 .bg {
     z-index: -2;
     background-image: url('/wallhaven-l871yl.png');
     visibility: visible;
     border: none;
-    height: 100%;
+    height: 100vh;
     pointer-events: none;
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 100vw;
     background-position: center center;
     background-repeat: no-repeat no-repeat;
     background-size: cover;
@@ -78,8 +93,8 @@ onMounted(() => {
     opacity: 0.2;
     position: fixed;
     top: 0;
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
     z-index: -1;
 }
 #universe {
@@ -91,8 +106,8 @@ onMounted(() => {
     outline: 0;
     left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     pointer-events: none;
     z-index: 1;
 }
