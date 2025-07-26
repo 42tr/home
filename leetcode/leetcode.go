@@ -149,13 +149,11 @@ func getProfileCalendar() ProfileCalendarInfo {
 		log.Fatalln("failed to read response body:", err)
 		return ProfileCalendarInfo{}
 	}
-	log.Println("response body read successfully", string(bytes))
 	var profileCalendar ProfileCalendarInfo
 	err = json.Unmarshal(bytes, &profileCalendar)
 	if err != nil {
 		log.Fatalln("failed to unmarshal profile calendar:", err)
 		return ProfileCalendarInfo{}
 	}
-	log.Println("profile calendar retrieved successfully")
 	return profileCalendar
 }

@@ -216,7 +216,7 @@ ul {
 }
 
 .item {
-    margin: 2px;
+    margin: 10px;
     position: relative;
     counter-increment: bianhao;
 }
