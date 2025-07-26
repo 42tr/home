@@ -4,4 +4,16 @@ body {
 
 .card {
     width: 280px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #3d3d3f;
+    overflow: hidden;
+    background:
+        radial-gradient(transparent 50%, black),
+        linear-gradient(transparent, black);
+}
+
+a {
+    text-decoration: none;
 }

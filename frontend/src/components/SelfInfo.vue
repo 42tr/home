@@ -1,21 +1,23 @@
 <template>
-<div class="card">
-    <div class="top">
-        设计开发一条龙
-    </div>
-    <div class="middle">
-        <div class="avatar-bg">
-            <a href="/resume" target="_blank">
-                <img class="avatar" src="/42tr.jpg">
-            </a>
+    <a href="/resume" target="_blank">
+        <div class="card">
+            <div class="top">
+                设计开发一条龙
+            </div>
+            <div class="middle">
+                <div class="avatar-bg">
+                    <img class="avatar" src="/42tr.jpg">
+                </div>
+            </div>
+            <div class="middle-text">42tr</div>
+            <div class="bottom">
+                <a href="https://www.16personalities.com/intj-personality" target="_blank">
+                    <img src="/intj-a.png" style="width: 140px; height: 140px;">
+                    <div style="font-size: 20px; position: absolute; bottom: 0; right: 0; width: 140px; text-align: center; color: #9096ee;">建筑师 INTJ-A</div>
+                </a>
+            </div>
         </div>
-    </div>
-    <div class="middle-text">42tr</div>
-    <div class="bottom">
-        <img src="/intj-a.png" style="width: 140px; height: 140px;">
-        <div style="font-size: 20px; position: absolute; bottom: 0; right: 0; width: 140px; text-align: center; color: #9096ee;">建筑师 INTJ-A</div>
-    </div>
-</div>
+    </a>
 </template>
 
 <style scoped>
@@ -25,12 +27,8 @@
     color: aliceblue;
     height: 380px;
     box-shadow: 0 8px 16px -4px rgba(0,0,0,0.314);
-    background: #1b1c20;
-    border: 1px solid #3d3d3f;
-    border-radius: 12px;
     overflow: hidden;
     opacity: 1;
-    box-sizing: border-box;
 }
 .top {
     min-height: 120px;
@@ -86,5 +84,11 @@
     width: 100%;
     height: 100%;
     cursor: pointer;
+}
+img {
+    transition: transform 0.5s ease;
+}
+img:hover {
+    transform: scale(1.1) rotate(10deg);
 }
 </style>

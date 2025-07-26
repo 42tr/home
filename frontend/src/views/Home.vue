@@ -4,6 +4,7 @@ import { NLayout, NLayoutHeader, NLayoutContent, NSpace, NRow, NCol } from 'naiv
 import Masonry from 'masonry-layout'
 import SelfInfo from '../components/SelfInfo.vue'
 import Leetcode from '../components/Leetcode.vue'
+import Bookmark from '../components/Bookmark.vue'
 
 const container = ref(null)
 onMounted(() => {
@@ -30,6 +31,44 @@ onMounted(() => {
     }
   })
 })
+
+const bookmarks = [
+  {
+    title: '博客',
+    url: 'https://42tr.cn',
+    tags: ['42tr'],
+  },
+  {
+    title: 'GitHub',
+    url: 'https://github.com/42tr',
+    tags: ['42tr'],
+  },
+  {
+    title: '任务管理',
+    url: 'https://tasks.42tr.com',
+    tags: ['42tr', 'task'],
+  },
+  {
+    title: '简历管理',
+    url: 'https://talents.42tr.com',
+    tags: ['42tr', 'talent'],
+  },
+  {
+    title: '禅道',
+    url: 'http://222.190.139.186:8888',
+    tags: ['bug'],
+  },
+  {
+    title: 'Gitlab',
+    url: 'http://222.190.139.186:9999',
+    tags: ['code'],
+  },
+  {
+    title: '内部知识分享平台',
+    url: 'http://192.168.0.46:8002',
+    tags: ['knowledge'],
+  },
+]
 </script>
 
 <template>
@@ -46,6 +85,11 @@ onMounted(() => {
                 <div ref="container" class="content masonry-wrapper">
                     <SelfInfo class="masonry-item"/>
                     <Leetcode class="masonry-item"/>
+                    <Bookmark class="masonry-item"
+                      v-for="(item, index) in bookmarks"
+                      :key="index"
+                      :bookmark="item"
+                    />
                 </div>
             </n-layout-content>
         </n-layout>
@@ -75,6 +119,7 @@ onMounted(() => {
     width: 100vw;
     padding-left: 30px;
     padding-right: 30px;
+    padding-top: 10px;
 }
 .content {
     display: grid;
@@ -125,5 +170,11 @@ onMounted(() => {
 }
 .masonry-item {
   margin: 8px;
+  transition: transform 0.5s ease;
+}
+.masonry-item:hover {
+  transform: translateX(2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  /* border-color: #CC9900; */
 }
 </style>

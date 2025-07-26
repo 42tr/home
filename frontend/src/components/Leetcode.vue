@@ -12,41 +12,38 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="card">
+    <a href="https://leetcode.cn/u/U72xhfFR3l/" target="_blank">
+        <div class="card">
+            <div class="card-body">
 
-    <div class="card-body">
+                <div class="stat-item">
+                    <span class="label">LeetCode 竞赛分数：</span>
+                    <span class="value">{{ data.rating }}</span>
+                </div>
 
-      <div class="stat-item">
-        <span class="label">LeetCode 竞赛分数：</span>
-        <span class="value">{{ data.rating }}</span>
-      </div>
+                <div class="stat-item">
+                    <span class="label">全球排名：</span>
+                    <span class="value">{{ data.globalRanking }} / {{ data.globalTotalParticipants }}</span>
+                </div>
 
-      <div class="stat-item">
-        <span class="label">全球排名：</span>
-        <span class="value">{{ data.globalRanking }} / {{ data.globalTotalParticipants }}</span>
-      </div>
+                <div class="stat-item">
+                    <span class="label">全国排名：</span>
+                    <span class="value">{{ data.localRanking }} / {{ data.localTotalParticipants }}</span>
+                </div>
 
-      <div class="stat-item">
-        <span class="label">全国排名：</span>
-        <span class="value">{{ data.localRanking }} / {{ data.localTotalParticipants }}</span>
-      </div>
+                <div class="stat-item">
+                    <span class="label">已解答：</span>
+                    <span class="value">{{ data.questionSolved }} / {{ data.questionTotal }}</span>
+                </div>
 
-      <div class="stat-item">
-        <span class="label">已解答：</span>
-        <span class="value">{{ data.questionSolved }} / {{ data.questionTotal }}</span>
-      </div>
-
-    </div>
-  </div>
+            </div>
+        </div>
+    </a>
 </template>
 
 <style scoped>
 .card {
-  box-sizing: border-box;
-  background-color: #000000;
   color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   padding: 24px;
   text-align: center;
   height: 254px;

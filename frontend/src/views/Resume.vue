@@ -11,6 +11,10 @@ import Hontor from '../assets/hontor.png'
 var open = (url) => {
   window.open(url, '_blank')
 }
+
+var mail = () => {
+  window.location.href = 'mailto:1055894396@qq.com'
+}
 </script>
 
 <template>
@@ -29,7 +33,7 @@ var open = (url) => {
                     </template>
                     18936861530
                 </n-button>
-                <n-button size="small" :bordered="false">
+                <n-button size="small" :bordered="false" @click="mail()">
                     <template #icon>
                         <n-icon><Email /></n-icon>
                     </template>
