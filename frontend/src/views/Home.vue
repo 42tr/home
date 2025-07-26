@@ -1,12 +1,11 @@
 <script setup>
 import { onMounted, onUnmounted, ref } from 'vue'
 import { NLayout, NLayoutHeader, NLayoutContent, NSpace, NRow, NCol } from 'naive-ui'
+import Masonry from 'masonry-layout'
 import SelfInfo from '../components/SelfInfo.vue'
 import Leetcode from '../components/Leetcode.vue'
-import http from '../api/http'
 
-const leetcode = ref({})
-
+const container = ref(null)
 onMounted(() => {
   // 加载背景光效
   const script = document.createElement('script')
@@ -18,10 +17,17 @@ onMounted(() => {
   onUnmounted(() => {
     document.head.removeChild(script)
   })
-  // 获取 leetcode 信息
-  http.get('/api/leetcode').then((response) => {
-    console.log(response)
-    leetcode.value = response
+  // 瀑布流展示卡片
+  var masonryInstance = new Masonry(container.value, {
+    itemSelector: '.masonry-item',
+    columnWidth: '.masonry-item',
+    percentPosition: true,
+    gutter: 16
+  })
+  onUnmounted(() => {
+    if (masonryInstance) {
+      masonryInstance.destroy()
+    }
   })
 })
 </script>
@@ -37,14 +43,10 @@ onMounted(() => {
                 </div>
             </n-layout-header>
             <n-layout-content>
-                <n-row :gutter="[12, 8]">
-                  <n-col :span="6">
-                    <SelfInfo />
-                  </n-col>
-                  <n-col :span="6">
-                    <Leetcode :data="leetcode" />
-                  </n-col>
-                </n-row>
+                <div ref="container" class="content masonry-wrapper">
+                    <SelfInfo class="masonry-item"/>
+                    <Leetcode class="masonry-item"/>
+                </div>
             </n-layout-content>
         </n-layout>
     </n-space>
@@ -73,6 +75,11 @@ onMounted(() => {
     width: 100vw;
     padding-left: 30px;
     padding-right: 30px;
+}
+.content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 8px;
 }
 .bg {
     z-index: -2;
@@ -110,5 +117,13 @@ onMounted(() => {
     height: 100vh;
     pointer-events: none;
     z-index: 1;
+}
+.masonry-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -8px;
+}
+.masonry-item {
+  margin: 8px;
 }
 </style>

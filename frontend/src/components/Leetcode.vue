@@ -1,8 +1,14 @@
 <script setup>
-import { ref } from 'vue';
-defineProps({
-  data: Object
-});
+import { onMounted, ref } from 'vue'
+import http from '../api/http'
+
+var data = ref({})
+onMounted(() => {
+  http.get('/api/leetcode').then((response) => {
+    console.log(response)
+    data.value = response
+  })
+})
 </script>
 
 <template>
@@ -43,6 +49,7 @@ defineProps({
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   padding: 24px;
   text-align: center;
+  height: 254px;
 }
 
 .leetcode-card:hover {
