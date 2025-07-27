@@ -5,6 +5,7 @@ import Masonry from 'masonry-layout'
 import SelfInfo from '../components/SelfInfo.vue'
 import Leetcode from '../components/Leetcode.vue'
 import Bookmark from '../components/Bookmark.vue'
+import Image from '../components/Image.vue'
 
 const container = ref(null)
 onMounted(() => {
@@ -35,7 +36,7 @@ onMounted(() => {
 const bookmarks = [
   {
     title: '博客',
-    url: 'https://42tr.cn',
+    url: 'https://blog.42tr.cn',
     tags: ['42tr'],
   },
   {
@@ -69,6 +70,10 @@ const bookmarks = [
     tags: ['knowledge'],
   },
 ]
+
+const imgs = [
+  { src: '/haruhi.jpg' }
+]
 </script>
 
 <template>
@@ -89,6 +94,11 @@ const bookmarks = [
                       v-for="(item, index) in bookmarks"
                       :key="index"
                       :bookmark="item"
+                    />
+                    <Image class="masonry-item"
+                      v-for="(item, index) in imgs"
+                      :key="index"
+                      :src="item.src"
                     />
                 </div>
             </n-layout-content>
