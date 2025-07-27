@@ -8,22 +8,23 @@
       <!-- 图标 + 名称 -->
       <div class="bookmark-header">
         <h3 class="bookmark-title">{{ bookmark.title }}</h3>
+        <!-- 标签 -->
+        <div v-if="bookmark.tags && bookmark.tags.length" class="bookmark-tags">
+          <span
+            v-for="tag in bookmark.tags"
+            :key="tag"
+            class="tag"
+            :style="{ backgroundColor: getTagColor(tag) }"
+          >
+            {{ tag }}
+          </span>
+        </div>
       </div>
 
       <!-- 网址 -->
       <p class="bookmark-url">{{ formatUrl(bookmark.url) }}</p>
 
-      <!-- 标签 -->
-      <div v-if="bookmark.tags && bookmark.tags.length" class="bookmark-tags">
-        <span
-          v-for="tag in bookmark.tags"
-          :key="tag"
-          class="tag"
-          :style="{ backgroundColor: getTagColor(tag) }"
-        >
-          {{ tag }}
-        </span>
-      </div>
+
 
       <!-- 收藏时间 -->
       <!-- <p class="bookmark-date">收藏于 {{ formatDate(bookmark.date) }}</p> -->
@@ -90,7 +91,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  height: 130px;
+  height: 100px;
 }
 
 /* 标题行 */

@@ -1,25 +1,19 @@
 <script setup>
 import { onMounted, onUnmounted, ref } from 'vue'
-import { NLayout, NLayoutHeader, NLayoutContent, NSpace, NRow, NCol } from 'naive-ui'
+import { NLayout, NLayoutContent, NSpace } from 'naive-ui'
 import Masonry from 'masonry-layout'
+import BgImg from '../assets/background.png'
+import Haruhi from '../assets/haruhi.jpg'
 import SelfInfo from '../components/SelfInfo.vue'
 import Leetcode from '../components/Leetcode.vue'
 import Bookmark from '../components/Bookmark.vue'
 import Image from '../components/Image.vue'
 import University from '../components/University.vue'
 
+
 const container = ref(null)
 onMounted(() => {
-  // 加载背景光效
-  const script = document.createElement('script')
-  script.src = '/universe.min.js'
-  script.onload = () => {
-    console.log('universe.js loaded')
-  }
-  document.head.appendChild(script)
-  onUnmounted(() => {
-    document.head.removeChild(script)
-  })
+  import('/src/assets/universe.min.js')
   // 瀑布流展示卡片
   var masonryInstance = new Masonry(container.value, {
     itemSelector: '.masonry-item',
@@ -73,33 +67,33 @@ const bookmarks = [
 ]
 
 const imgs = [
-  { src: '/haruhi.jpg' }
+  { src: Haruhi }
 ]
 </script>
 
 <template>
-    <div class="bg"></div>
+    <div class="bg" :style="{ backgroundImage: `url(${BgImg})` }"></div>
     <div class="gradient"></div>
     <n-space vertical size="large">
         <n-layout>
-            <n-layout-header>
+            <!-- <n-layout-header>
                 <div>
                     <p class="logo">42tr</p>
                 </div>
-            </n-layout-header>
+            </n-layout-header> -->
             <n-layout-content>
                 <div ref="container" class="content masonry-wrapper">
                     <SelfInfo class="masonry-item"/>
+                    <Image class="masonry-item"
+                      v-for="(item, index) in imgs"
+                      :key="index"
+                      :src="item.src"
+                    />
                     <Leetcode class="masonry-item"/>
                     <Bookmark class="masonry-item"
                       v-for="(item, index) in bookmarks"
                       :key="index"
                       :bookmark="item"
-                    />
-                    <Image class="masonry-item"
-                      v-for="(item, index) in imgs"
-                      :key="index"
-                      :src="item.src"
                     />
                     <University class="masonry-item"/>
                 </div>
@@ -114,24 +108,24 @@ const imgs = [
 .logo {
     font-size: 24px;
     color: white;
-    margin-left: 30px;
+    margin-left: 10px;
 }
 .n-layout {
     background-color: transparent !important;
 }
-.n-layout-header {
+/* .n-layout-header {
     background-color: transparent !important;
     color: white;
     height: 64px;
     width: 100vw;
-}
+} */
 .n-layout-content {
     background-color: transparent !important;
-    height: calc(100vh - 64px);
+    height: 100vh;
     width: 100vw;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
 }
 .content {
     display: grid;
@@ -140,7 +134,7 @@ const imgs = [
 }
 .bg {
     z-index: -2;
-    background-image: url('/wallhaven-l871yl.png');
+    /* background-image: url('/background.png'); */
     visibility: visible;
     border: none;
     height: 100vh;
@@ -178,10 +172,10 @@ const imgs = [
 .masonry-wrapper {
   display: flex;
   flex-wrap: wrap;
-  margin: -8px;
+  margin: -3px;
 }
 .masonry-item {
-  margin: 8px;
+  margin: 3px;
   transition: transform 0.5s ease;
 }
 .masonry-item:hover {
