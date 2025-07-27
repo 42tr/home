@@ -63,5 +63,5 @@ func main() {
 
 	api := r.Group("/api")
 	api.GET("/leetcode", leetcode.GetInfo)
-	r.Run()
+	r.Run("9042")
 }
