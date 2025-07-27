@@ -9,15 +9,34 @@ import Image from '../components/Image.vue'
 import University from '../components/University.vue'
 
 
-// import BgImg from '../assets/background.png'
-import Haruhi from '../assets/haruhi.jpg'
 const container = ref(null)
 const BgImg = ref(null)
 
-const imgs = ref([{src: Haruhi}])
 const loadImg = async () => {
   const bg = await import('../assets/background.png')
   BgImg.value = bg.default
+}
+const imgs = ref([
+  { src: null, loading: true, alt: 'Surtr' },
+  { src: null, loading: true, alt: 'Haruhi' }
+])
+
+// 懒加载图片函数
+const loadImages = async () => {
+  try {
+    const [surtrModule, haruhiModule] = await Promise.all([
+      import('../assets/wallhaven-k7y68m.png'),
+      import('../assets/haruhi.jpg')
+    ])
+
+    imgs.value[0].src = surtrModule.default
+    imgs.value[0].loading = false
+
+    imgs.value[1].src = haruhiModule.default
+    imgs.value[1].loading = false
+  } catch (err) {
+    console.error('Failed to load images', err)
+  }
 }
 onMounted(async () => {
   // 瀑布流展示卡片
@@ -34,6 +53,7 @@ onMounted(async () => {
   })
 
   await loadImg()
+  await loadImages()
   await import('/src/assets/universe.min.js')
 })
 
@@ -90,11 +110,6 @@ const bookmarks = [
             <n-layout-content>
                 <div ref="container" class="content masonry-wrapper">
                     <SelfInfo class="masonry-item"/>
-                    <Image class="masonry-item"
-                      v-for="(item, index) in imgs"
-                      :key="index"
-                      :src="item.src"
-                    />
                     <Leetcode class="masonry-item"/>
                     <Bookmark class="masonry-item"
                       v-for="(item, index) in bookmarks"
@@ -102,6 +117,12 @@ const bookmarks = [
                       :bookmark="item"
                     />
                     <University class="masonry-item"/>
+                    <Image class="masonry-item"
+                      v-for="(item, index) in imgs"
+                      :key="index"
+                      :src="item.src"
+                      :loading="item.loading"
+                    />
                 </div>
             </n-layout-content>
         </n-layout>
