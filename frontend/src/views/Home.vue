@@ -2,8 +2,6 @@
 import { onMounted, onUnmounted, ref } from 'vue'
 import { NLayout, NLayoutContent, NSpace } from 'naive-ui'
 import Masonry from 'masonry-layout'
-import BgImg from '../assets/background.png'
-import Haruhi from '../assets/haruhi.jpg'
 import SelfInfo from '../components/SelfInfo.vue'
 import Leetcode from '../components/Leetcode.vue'
 import Bookmark from '../components/Bookmark.vue'
@@ -11,9 +9,17 @@ import Image from '../components/Image.vue'
 import University from '../components/University.vue'
 
 
+// import BgImg from '../assets/background.png'
+import Haruhi from '../assets/haruhi.jpg'
 const container = ref(null)
-onMounted(() => {
-  import('/src/assets/universe.min.js')
+const BgImg = ref(null)
+
+const imgs = ref([{src: Haruhi}])
+const loadImg = async () => {
+  const bg = await import('../assets/background.png')
+  BgImg.value = bg.default
+}
+onMounted(async () => {
   // 瀑布流展示卡片
   var masonryInstance = new Masonry(container.value, {
     itemSelector: '.masonry-item',
@@ -26,6 +32,9 @@ onMounted(() => {
       masonryInstance.destroy()
     }
   })
+
+  await loadImg()
+  await import('/src/assets/universe.min.js')
 })
 
 const bookmarks = [
@@ -66,9 +75,6 @@ const bookmarks = [
   },
 ]
 
-const imgs = [
-  { src: Haruhi }
-]
 </script>
 
 <template>

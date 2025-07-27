@@ -6,7 +6,9 @@ import (
 	"io/fs"
 	"log"
 	"net/http"
+	"os"
 	"strings"
+	"time"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -15,6 +17,36 @@ import (
 //go:embed frontend/dist/*
 var staticFiles embed.FS
 
+type embedFS struct {
+	fs.FS
+	modTime time.Time
+}
+
+func (f embedFS) Open(name string) (fs.File, error) {
+	file, err := f.FS.Open(name)
+
+	return &embedFile{File: file, modTime: f.modTime}, err
+}
+
+type embedFile struct {
+	fs.File
+	modTime time.Time
+}
+
+func (f *embedFile) Stat() (os.FileInfo, error) {
+	fileInfo, err := f.File.Stat()
+
+	return &embedFileInfo{FileInfo: fileInfo, modTime: f.modTime}, err
+}
+
+type embedFileInfo struct {
+	os.FileInfo
+	modTime time.Time
+}
+
+func (f *embedFileInfo) ModTime() time.Time {
+	return f.modTime
+}
 func main() {
 	r := gin.Default()
 	r.Use(cors.Default())
@@ -23,7 +55,9 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	r.StaticFS("/assets", http.FS(assetFS))
+	f := embedFS{FS: assetFS, modTime: time.Now()}
+	r.StaticFS("/assets", http.FS(f))
+	// r.StaticFS("/assets", http.FS(assetFS))
 
 	// 处理 favicon
 	r.GET("/star.png", func(c *gin.Context) {
