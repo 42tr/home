@@ -6,6 +6,7 @@ import SelfInfo from '../components/SelfInfo.vue'
 import Leetcode from '../components/Leetcode.vue'
 import Bookmark from '../components/Bookmark.vue'
 import Image from '../components/Image.vue'
+import University from '../components/University.vue'
 
 const container = ref(null)
 onMounted(() => {
@@ -100,6 +101,7 @@ const imgs = [
                       :key="index"
                       :src="item.src"
                     />
+                    <University class="masonry-item"/>
                 </div>
             </n-layout-content>
         </n-layout>

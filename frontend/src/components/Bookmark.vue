@@ -90,6 +90,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  height: 130px;
 }
 
 /* 标题行 */

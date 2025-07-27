@@ -12,6 +12,6 @@ defineProps({
 
 <style scoped>
 .card {
-    height: 100%;
+    height: 530px;
 }
 </style>
