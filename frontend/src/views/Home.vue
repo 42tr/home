@@ -70,12 +70,12 @@ const bookmarks = [
   },
   {
     title: '任务管理',
-    url: 'https://tasks.42tr.com',
+    url: 'https://tasks.42tr.cn',
     tags: ['42tr', 'task'],
   },
   {
     title: '简历管理',
-    url: 'https://talents.42tr.com',
+    url: 'https://talents.42tr.cn',
     tags: ['42tr', 'talent'],
   },
   {
