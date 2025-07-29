@@ -51,7 +51,7 @@ func setLeetCodeInfo() {
 func init() {
 	setLeetCodeInfo()
 	c := cron.New()
-	c.AddFunc("0 0 * * * *", func() {
+	c.AddFunc("0 * * * *", func() {
 		setLeetCodeInfo()
 	})
 	c.Start()
