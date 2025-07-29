@@ -93,6 +93,11 @@ const bookmarks = [
     url: 'http://192.168.0.46:8002',
     tags: ['knowledge'],
   },
+  {
+    title: '语雀',
+    url: 'https://www.yuque.com/42tr/knowledge',
+    tags: ['knowledge'],
+  }
 ]
 
 </script>
